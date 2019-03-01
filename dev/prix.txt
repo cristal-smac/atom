@@ -1,0 +1,10 @@
+Price;obname;price;quty;dirAgLast;agLast;Oid;ag2;Oid;bestask;bestbid
+Price;lvmh;45500;10;A;alan;3;bob;1;12000;45500
+Price;lvmh;45800;10;A;alan;5;bob;4;11500;45800
+Price;lvmh;45800;7;A;alan;6;bob;4;36000;45800
+Price;lvmh;45500;3;A;alan;6;bob;1;36000;45500
+Price;lvmh;42000;2;A;alan;6;bob;2;36000;42000
+Price;lvmh;42000;12;A;alan;7;bob;2;38500;42000
+Price;lvmh;34000;18;A;alan;9;bob;8;19000;34000
+Price;lvmh;34000;11;A;alan;10;bob;8;11700;34000
+Price;lvmh;34000;5;A;alan;11;bob;8;24000;34000

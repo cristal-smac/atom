@@ -1,0 +1,65 @@
+# An ATOM order file
+
+# To run : java -cp atom-1.0.jar fr.cristal.smac.Replay orderFileExample1
+
+# Empty lines are allowed
+# Comment lines, begin with '#'
+#
+# Commands:
+# !P print the orderbooks state
+# !C change price fixing to Continuous (used by default)
+# !F change price fixing to Fix
+# !K close the market (fix close price if in FIX) and reinit all the orderbooks
+# !S set price log type to SHORT
+# !L set price log type to LONG (used by default)
+
+# Orders syntax:
+# The constant 'Order', the agent name as well as the orderbook name cannot be empty;
+
+# Id must be unique, dir=A (for Ask) or B (for Bid) , price and qty are integers
+
+# LimitOrder  : Order; ob ; agent; id ; L ; dir ; price ; qty
+# MarketOrder : Order; ob ; agent; id ; M ; dir ; qty
+# IcebergOrder: Order; ob ; agent; id ; I ; dir ; price ; part ; total
+# MarketToLimit:Order; ok; agent; id ; T ; dir ; quty 
+# StopLossOrder:Order; ob ; agent; id ; S ; dir ; price ; qty ; limit
+# StopLossMktO: Order; ob ; agent; id ; R ; dir ; qty ; limit
+# CancelOrder : Order; ob ; agent; id ; C ; idToCancel
+# UpdateOrder : Order; ob ; agent; id ; U ; idToChange  ; new qty 
+
+# Here is an example
+
+Order;lvmh;bob;1;L;B;45500;13
+Order;lvmh;bob;2;L;B;42000;14
+Order;lvmh;alan;3;L;A;12000;10
+Order;lvmh;bob;4;L;B;45800;17
+Order;lvmh;alan;5;L;A;11500;10
+Order;lvmh;alan;6;L;A;36000;12
+Order;lvmh;alan;7;L;A;38500;12
+Order;lvmh;bob;8;L;B;34000;34
+Order;lvmh;alan;9;L;A;19000;18
+Order;lvmh;alan;10;L;A;11700;11
+Order;lvmh;alan;11;L;A;24000;5
+!P
+
+# At the end, the orderBook is empty
+# prices and quty obtained in long mode (see lvmh.prices)
+# 45500;10;A;3;
+# 45800;10;A;5;
+# 45800;7;A;6;
+# 45500;3;A;6;
+# 42000;2;A;6;
+# 42000;12;A;7;
+# 34000;18;A;9;
+# 34000;11;A;10;
+# 34000;5;A;11;
+
+
+# prices and quty obtained in short mode (see lvmh.prices)
+# 45500;10;A;3;
+# 45800;10;A;5;
+# 42000;12;A;6;
+# 42000;12;A;7;
+# 34000;18;A;9;
+# 34000;11;A;10;
+# 34000;5;A;11;

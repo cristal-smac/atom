@@ -1,0 +1,82 @@
+# An ATOM order file
+
+# To run : java -cp atom-1.0.jar fr.cristal.smac.atom.Replay orderFileExample6
+
+# Empty lines are allowed
+# Comment lines, begin with '#'
+#
+# Commands:
+# !P print the orderbooks state
+# !C change price fixing to Continuous (used by default)
+# !F change price fixing to Fix
+# !K close the market (fix close price if in FIX) and reinit all the orderbooks
+# !S set price log type to SHORT
+# !L set price log type to LONG (used by default)
+
+# Orders syntax:
+# The constant 'Order', the agent name as well as the orderbook name cannot be empty;
+
+# Id must be unique, dir=A (for Ask) or B (for Bid) , price and qty are integers
+
+# LimitOrder  : Order; ob ; agent; id ; L ; dir ; price ; qty
+# MarketOrder : Order; ob ; agent; id ; M ; dir ; qty
+# IcebergOrder: Order; ob ; agent; id ; I ; dir ; price ; part ; total
+# MarketToLimit:Order; ok; agent; id ; T ; dir ; quty 
+# StopLossOrder:Order; ob ; agent; id ; S ; dir ; price ; qty ; limit
+# StopLossMktO: Order; ob ; agent; id ; R ; dir ; qty ; limit
+# CancelOrder : Order; ob ; agent; id ; C ; idToCancel
+# UpdateOrder : Order; ob ; agent; id ; U ; idToChange  ; new qty 
+
+
+# Here is an example
+
+#Test 1
+#-----
+Order;lvmh;bob;-;L;B;1000;3
+Order;lvmh;jane;-;T;A;3
+# Fixe 1 prix quty 3 à 1000, carnet vide
+
+# Test 2
+#------
+Order;lvmh;bob;-;L;B;1000;5
+Order;lvmh;jane;-;T;A;3
+# Fixe 1 prix de 3 à 1000 et laisse un résidu en ASk de 1000 à 2
+Order;lvmh;dumb;-;L;A;1000;2
+
+# Test 3
+#------
+Order;lvmh;bob;-;L;B;1000;3
+Order;lvmh;jane;-;T;A;5
+# Fixe 1 prix de 3 à 1000; le Market transforme son résidu en Limit Ask qute 2 à 1000
+Order;lvmh;dumb;-;L;B;1000;2
+
+# Test 4
+#-----
+Order;lvmh;bob;-;L;B;1000;3
+Order;lvmh;paul;-;L;B;1000;3
+Order;lvmh;jane;-;T;A;10
+# Fixe  3 ordres à 1000 avec bob, 3 ordres à 1000 avec paul, et laisse un Limit en Ask à 1000 qute 4 
+Order;lvmh;dumb;-;L;B;1000;4
+
+# Test 5 : différence entre un Market et un MarketToLimit
+#-----
+Order;lvmh;bob;-;L;B;1000;3
+Order;lvmh;paul;-;L;B;800;3
+Order;lvmh;jane;-;T;A;10
+# Fixe un prix de 3 à 1000, laisse un résidu de 7 à 1000 en ASK, face à un BID non matché
+Order;lvmh;dumb;-;L;B;1000;7
+Order;lvmh;dumb;-;L;A;800;3
+
+# Test 6
+#-----
+Order;lvmh;bob;-;L;B;1000;3
+Order;lvmh;paul;-;L;B;800;3
+Order;lvmh;jane;-;T;A;1
+# Fixe  1 contrat à 1000 avec bob, et laisse le 2 à 1000 de bob et le 3 à 800 de paul
+Order;lvmh;dumb;-;L;A;800;5
+
+!P
+!K
+
+# 12 orders fixed. Orderbook is empty at the end
+
