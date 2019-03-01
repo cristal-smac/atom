@@ -18,23 +18,23 @@ Main characteristics :
 
 # Examples
 
-You should have Java (version 1.8 at least) installed on your system (freely available here:
+You should have Java (version 1.8 at least) installed on your system (freely available :
 http://www.oracle.com/technetwork/java/javase/downloads).
 
 You have two main commands given with ATOM : `Generate` to generate an experiment with ZIT agents. `Replay` to use ATOM as a flow replayer. Here are three basic ATOM usages (consider you are in the `dist` directory) : 
 
 ## First one : Generate and analyze data
 ```
-> java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1
-Syntax: <nbAgents> <nbOrderbooks> <nbTurns> <nbDays>
+java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1
 ```
+`Syntax: <nbAgents> <nbOrderbooks> <nbTurns> <nbDays>`
 You then have a log file that you can analyse. You can notably see the orders sent, the prices, the agents's states etc ...
 
 Use `Grep` for example to filter lines
 ```
-> java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1 > myfile
-> grep '^Price' myfile
-> grep '^Agent' myfile | grep ZIT1
+java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1 > myfile
+grep '^Price' myfile
+grep '^Agent' myfile | grep ZIT1
 ```
 
 Use `R`(or gnuplot) to plot prices
@@ -49,14 +49,14 @@ plot(prices$price, type='l', col='red', ylim=c(13000,16000))
 
 ## Second one : replay files
 ```
-> java -cp atom.jar fr.cristal.smac.atom.Replay orderFileExample1
+java -cp atom.jar fr.cristal.smac.atom.Replay orderFileExample1
 ```
 
 See this file. It is really easy to build your own. but you can also replay exactly a file with several agents
 as one obtained with Generate
 ```
-> java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1 > myfile1
-> java -cp atom.jar fr.cristal;smac.atom.Replay myfile > myfile2
+java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1 > myfile1
+java -cp atom.jar fr.cristal;smac.atom.Replay myfile > myfile2
 ```
 
 ## Third one : Write your own code, with your agents
