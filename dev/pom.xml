@@ -4,7 +4,7 @@
   <groupId>fr.cristal.smac</groupId>
   <artifactId>atom</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.14</version>
   <name>atom</name>
   <url>http://maven.apache.org</url>
   <properties>
