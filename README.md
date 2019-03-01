@@ -1,5 +1,5 @@
 # ATOM
-ATOM means *Artificial Open Market* and is a Java API built in 2010 by Pr Philippe Mathieu ([CRISTAL](http://cristal.univ-lille.fr), [SMAC team](http://cristal.univ-lille.fr/), [University of Lille](http://www.cristal.univ-lille.fr/SMAC)) and Pr Olivier Brandouy (Gretha, Bordeaux university)
+ATOM means *Artificial Open Market* and is a Java API built in 2010 by Pr Philippe Mathieu ([CRISTAL](http://www.cristal.univ-lille.fr), [SMAC team](http://www.cristal.univ-lille.fr/SMAC), [University of Lille](http://www.univ-lille.fr)) and Pr Olivier Brandouy (Gretha, Bordeaux university)
 
 Contact : atom at univ-lille.fr
 
@@ -7,10 +7,10 @@ ATOM is a Java API with which you can build any kind of experiments on order-dri
 ATOM contains a powerful log system. This aspect facilitates all the statistics you could need, curves you could have to plot or stylized facts you could have to verify. This log file can also be integrally replayed with the ATOM flow replayer, not only able to send once again the orders, but also able to re-create all the agents asking all of them to re-send their own orders in the same scheduling.
 
 Main characteristics :
-- Multi-agents. you can create and add any kind of new agent for your experiments
+- Multi-agents. you can create and add any kind of new agent or new behaviour for your experiments
 - Multi-orders. All the Euronext orders are included : Limit, Market, Iceberg, StopLimit, StopMarket, Cancel and Update orders.
-- Muti price fixing procedures. Maintly Fix price fixing, and continuous price fixing
-- Open day configuration. Your can easily build your own day configuration mixing fix and continuous periods.
+- Muti price fixing procedures. Mainly Fix price fixing, and continuous price fixing are available
+- Open day configuration. Your can easily build your own day configuration mixing fix and continuous periods. Euronext (3 periods : open, continuous and close) is of course direcly available.
 - Multiagent flow replayer. When a data file is replayed, all the cited agents are created and impacted, allowing to study the feedback when replaying
 - Intraday or Extraday experiments
 - Fast : 100 agents during 10 days of 1000 ticks (thus 1 million orders !) is done in less than 12 seconds
