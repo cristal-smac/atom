@@ -22,11 +22,12 @@ Main characteristics :
 # Examples
 
 You should have Java (version 1.8 at least) installed on your system (freely available on
-[Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads).
+[Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads)).
 
 You have two main commands given with ATOM : 
 - `Generate` to generate an experiment with ZIT agents. 
 - `Replay` to use ATOM as a flow replayer. 
+
 Here are three basic ATOM usages (consider you are in the `dist` directory) : 
 
 ## First one : Generate and analyze data
