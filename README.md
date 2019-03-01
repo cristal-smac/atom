@@ -1,5 +1,5 @@
 # ATOM
-ATOM means *Artificial Open Market* and is a Java API built in 2010 by Pr Philippe Mathieu (CRISTAL, University of Lille) and Pr Olivier Brandouy (Gretha, Bordeaux university)
+ATOM means *Artificial Open Market* and is a Java API built in 2010 by Pr Philippe Mathieu ([CRISTAL](http://cristal.univ-lille.fr), [SMAC team](http://cristal.univ-lille.fr/), [University of Lille](http://www.cristal.univ-lille.fr/SMAC)) and Pr Olivier Brandouy (Gretha, Bordeaux university)
 
 Contact : atom at univ-lille.fr
 
@@ -21,8 +21,8 @@ Main characteristics :
 
 # Examples
 
-You should have Java (version 1.8 at least) installed on your system (freely available :
-http://www.oracle.com/technetwork/java/javase/downloads).
+You should have Java (version 1.8 at least) installed on your system (freely available on
+[Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads).
 
 You have two main commands given with ATOM : 
 - `Generate` to generate an experiment with ZIT agents. 
