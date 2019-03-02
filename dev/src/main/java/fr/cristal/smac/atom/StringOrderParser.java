@@ -38,7 +38,13 @@ public class StringOrderParser
     public static boolean isCommentOrEmpty(String currentLine)
     {
         return (currentLine == null | currentLine.length() == 0
-                || currentLine.charAt(0) == '#');
+                || currentLine.charAt(0) == '#'
+                || currentLine.startsWith("Order;obname")
+                || currentLine.startsWith("Tick;numtick")
+                || currentLine.startsWith("Price;obname")
+                || currentLine.startsWith("Agent;name")
+                || currentLine.startsWith("Exec;agent")
+                || currentLine.startsWith("Day;numday"));
     }
 
     public static boolean isDay(String currentLine)
