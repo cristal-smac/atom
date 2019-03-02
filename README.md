@@ -8,7 +8,7 @@ ATOM contains a powerful log system. This aspect facilitates all the statistics 
 
 Main features :
 - Multi-agents. you can create and add any kind of new agent or new behaviour for your experiments
-- Multi-orders. All the Euronext orders are included : Limit, Market, Iceberg, StopLimit, StopMarket, Cancel and Update orders.
+- Multi-orders. All the Euronext orders are included : Limit, Market, MarketToLimit, Iceberg, StopLimit, StopMarket, Cancel and Update orders.
 - Muti price fixing procedures. Mainly Fix price fixing, and continuous price fixing are available
 - Open day configuration. Your can easily build your own day configuration mixing fix and continuous periods. Euronext (3 periods : open, continuous and close) is of course direcly available.
 - Multiagent flow replayer. When a data file is replayed, all the cited agents are created and impacted, allowing to study the feedback when replaying
@@ -21,7 +21,7 @@ Main features :
 
 # Examples
 
-You should have Java (version 1.5 at least) installed on your system (freely available on
+You should have Java (version 1.7 at least) installed on your system (freely available on
 [Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads)).
 
 You have two main commands given with ATOM : 
