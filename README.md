@@ -68,7 +68,11 @@ java -cp atom-1.14.jar fr.cristal.smac.atom.Replay myfile1 > myfile2
 ```
 
 ## Third one : Write your own code, with your agents
-In this case you need to know Java coding. Include the jar file in your IDE (Eclipse, Netbeans, IntelliJ) and build your own agents and own experiments. See `Tutorial.java`
+In this case you need to know Java coding. Include the jar file in your IDE (Eclipse, Netbeans, IntelliJ) or use command line to build exactly what you need. The `Tutorial.java` illustrates how to build its own experience and its own agents.
+```
+javac -cp .:atom-1.14.jar Tutorial.java
+java  -cp .:atom-1.14.jar Tutorial
+```
 
 
 # How to make a reference to ATOM
