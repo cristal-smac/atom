@@ -44,7 +44,7 @@ grep '^Price' myfile
 grep '^Agent' myfile | grep ZIT1
 ```
 
-Use [R project](https://www.r-project.org)(or [gnuplot](http://www.gnuplot.info/)) to plot prices
+Use [R project](https://www.r-project.org) (or [gnuplot](http://www.gnuplot.info/)) to plot prices
 ```
 java -cp atom-1.14.jar fr.cristal.smac.atom.Generate 10 1 1000 1 | grep '^Price' > prices.csv
 ```
