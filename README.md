@@ -37,14 +37,14 @@ java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1
 `Syntax: <nbAgents> <nbOrderbooks> <nbTurns> <nbDays>`
 You then have a log file that you can analyse. You can notably see the orders sent, the prices, the agents's states etc ...
 
-Use `Grep` for example to filter lines
+Use [Grep](https://www.gnu.org/software/grep/manual/grep.html) for example to filter lines
 ```
 java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1 > myfile
 grep '^Price' myfile
 grep '^Agent' myfile | grep ZIT1
 ```
 
-Use `R`(or gnuplot) to plot prices
+Use [R project](https://www.r-project.org)(or [gnuplot](http://www.gnuplot.info/)) to plot prices
 ```
 java -cp atom.jar fr.cristal.smac.atom.Generate 10 1 1000 1 | grep '^Price' > prices.csv
 ```
