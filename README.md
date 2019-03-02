@@ -1,5 +1,5 @@
 # ATOM
-ATOM means *Artificial Open Market* and is a Java API built in 2010 by Pr Philippe Mathieu ([CRISTAL](http://www.cristal.univ-lille.fr), [SMAC team](https://www.cristal.univ-lille.fr/?rubrique27&eid=17), [Lille University](http://www.univ-lille.fr)) and Pr Olivier Brandouy ([Gretha](https://gretha.u-bordeaux.fr/), [Bordeaux university](https://www.u-bordeaux.fr/))
+ATOM means *Artificial Open Market* and is a Java API built in 2008 by Pr Philippe Mathieu ([CRISTAL](http://www.cristal.univ-lille.fr), [SMAC team](https://www.cristal.univ-lille.fr/?rubrique27&eid=17), [Lille University](http://www.univ-lille.fr)) and Pr Olivier Brandouy ([Gretha](https://gretha.u-bordeaux.fr/), [Bordeaux university](https://www.u-bordeaux.fr/))
 
 Contact : atom at univ-lille.fr
 
