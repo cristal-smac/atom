@@ -6,7 +6,7 @@ Contact : atom at univ-lille.fr
 ATOM is a Java API with which you can build any kind of experiments on order-driven markets like NYSE or Euronext. ATOM contains a Market on which you can add any number of double auction orderbooks, one for each asset (option) you want to trade. It also manages some artificial agents that you may have to build and add to your experiments. We give in this package few basic agents like the classic Zero Intelligent Trader (ZIT). The given agents are able to trade simultaneously on all the orderbooks added in the Market. But you can of course easily build your own experiments with your own agents.
 ATOM contains a powerful log system. This aspect facilitates all the statistics you could need, curves you could have to plot or stylized facts you could have to verify. This log file can also be integrally replayed with the ATOM flow replayer, not only able to send once again the orders, but also able to re-create all the agents asking all of them to re-send their own orders in the same scheduling.
 
-Main characteristics :
+Main features :
 - Multi-agents. you can create and add any kind of new agent or new behaviour for your experiments
 - Multi-orders. All the Euronext orders are included : Limit, Market, Iceberg, StopLimit, StopMarket, Cancel and Update orders.
 - Muti price fixing procedures. Mainly Fix price fixing, and continuous price fixing are available
