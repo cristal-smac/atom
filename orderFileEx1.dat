@@ -1,0 +1,25 @@
+NewAgent;Agent 1;0;LVMH:0
+LimitOrder;LVMH;Agent 1;BID;45500;13
+LimitOrder;LVMH;Agent 1;BID;42000;14
+LimitOrder;LVMH;Agent 1;ASK;12000;10
+LimitOrder;LVMH;Agent 1;BID;45800;17
+LimitOrder;LVMH;Agent 1;ASK;11500;10
+LimitOrder;LVMH;Agent 1;ASK;36000;12
+LimitOrder;LVMH;Agent 1;ASK;38500;12
+LimitOrder;LVMH;Agent 1;BID;34000;34
+LimitOrder;LVMH;Agent 1;ASK;19000;18
+LimitOrder;LVMH;Agent 1;ASK;11700;11
+LimitOrder;LVMH;Agent 1;ASK;24000;5
+
+# At the end, the orderbook is empty
+# Prices and Qty obtained:
+# Price;asset;bider;asker;price;qty
+# Price;LVMH;1;1;45500;10
+# Price;LVMH;1;1;45800;10
+# Price;LVMH;1;1;45800;7
+# Price;LVMH;1;1;45500;3
+# Price;LVMH;1;1;42000;2
+# Price;LVMH;1;1;42000;12
+# Price;LVMH;1;1;34000;18
+# Price;LVMH;1;1;34000;11
+# Price;LVMH;1;1;34000;5

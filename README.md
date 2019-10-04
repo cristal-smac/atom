@@ -86,4 +86,3 @@ java  -cp .:atom-1.14.jar Tutorial
 Applications of Agents and Multi-Agents Systems (PAAMS'2012), Salamanca (Spain) -- 28th-30th March 2012 ([bibtex](https://scholar.google.fr/scholar?hl=fr&as_sdt=0%2C5&q=Introducing+ATOM+PAAMS+Mathieu+Brandouy&btnG=))
 
 Our other publications [here](https://scholar.google.fr/scholar?hl=fr&as_sdt=0%2C5&q=Mathieu+Brandouy&btnG=)
-
