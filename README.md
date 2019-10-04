@@ -54,16 +54,6 @@ prices <- read.csv(file='prices.csv', sep=";" , header=TRUE)
 plot(prices$price, type='l', col='red', ylim=c(13000,16000))
 ```
 
-Or if you want to see one agent' evolution
-```
-java -cp atom-1.14.jar fr.cristal.smac.atom.Generate 10 1 1000 1 | grep '^Agent;ZIT2' > agent.csv
-```
-and in R
-```
-agent <- read.csv(file='agent.csv', sep=";" , header=FALSE)
-plot((agent$V3+(agent$V5*agent$V6), type='l', col='blue')
-```
-
 ## Second one : replay files
 Several examples are given in the `data` repository. 
 ```
