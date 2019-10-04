@@ -1,0 +1,66 @@
+# An ATOM order file
+
+# To run : java -cp atom-1.0.jar fr.cristal.smac.Replay orderFileExample5
+
+# Empty lines are allowed
+# Comment lines, begin with '#'
+#
+# Commands:
+# !P print the orderbooks state
+# !C change price fixing to Continuous (used by default)
+# !F change price fixing to Fix
+# !K close the market (fix close price if in FIX) and reinit all the orderbooks
+# !S set price log type to SHORT
+# !L set price log type to LONG (used by default)
+
+# Orders syntax:
+# The constant 'Order', the agent name as well as the orderbook name cannot be empty;
+
+# Id must be unique, dir=A (for Ask) or B (for Bid) , price and qty are integers
+
+# LimitOrder  : Order; ob ; agent; id ; L ; dir ; price ; qty
+# MarketOrder : Order; ob ; agent; id ; M ; dir ; qty
+# IcebergOrder: Order; ob ; agent; id ; I ; dir ; price ; part ; total
+# MarketToLimit:Order; ok; agent; id ; T ; dir ; quty 
+# StopLossOrder:Order; ob ; agent; id ; S ; dir ; price ; qty ; limit
+# StopLossMktO: Order; ob ; agent; id ; R ; dir ; qty ; limit
+# CancelOrder : Order; ob ; agent; id ; C ; idToCancel
+# UpdateOrder : Order; ob ; agent; id ; U ; idToChange  ; new qty 
+
+# Here is an example
+
+!F
+Order;lvmh;bob;1;L;B;95000;25
+Order;lvmh;bob;2;L;B;94000;50
+Order;lvmh;bob;3;L;B;92000;100
+Order;lvmh;bob;4;L;B;90000;100
+Order;lvmh;bob;5;L;B;85000;100
+Order;lvmh;bob;6;L;B;80000;200
+Order;lvmh;bob;7;L;B;77000;200
+Order;lvmh;bob;8;L;B;75000;100
+Order;lvmh;alan;9;L;A;95000;100
+Order;lvmh;alan;10;L;A;94000;500
+Order;lvmh;alan;11;L;A;92000;350
+Order;lvmh;alan;12;L;A;90000;200
+Order;lvmh;alan;13;L;A;85000;50
+Order;lvmh;alan;14;L;A;80000;25
+!K
+
+# At the end we leave 3 ask and 4 bid
+# 3 prices have been fixed all at 90000
+# 
+# In FIX mode, you just have one price fixed
+# 90000;275;
+#
+#
+# If you put a C instead of a F, you will fix 4 prices.
+# this example shows that C and F are really different
+#
+# 95000;25;A;9;
+# 94000;50;A;10;
+# 92000;100;A;11;
+# 90000;100;A;12;
+# 85000;50;A;13;
+# 85000;25;A;14;
+#
+# Here, the result is the same both in long or short mode
