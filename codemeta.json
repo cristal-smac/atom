@@ -1,0 +1,81 @@
+{
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "@type": "SoftwareSourceCode",
+    "license": "https://spdx.org/licenses/GPL-3.0+",
+    "codeRepository": "https://github.com/cristal-smac/atom",
+    "dateCreated": "2008-03-16",
+    "datePublished": "2018-07-01",
+    "dateModified": "2023-12-14",
+    "name": "atom",
+    "version": "1.0",
+    "description": "Atom is an artificial financial market platform for defining and experimenting with trading behaviour and pricing mechanisms.",
+    "applicationCategory": "Research, Education",
+    "releaseNotes": "Bug Fixes",
+    "developmentStatus": "active",
+    "isPartOf": "https://github.com/cristal-smac",
+    "referencePublication": "https://hal.science/hal-00826408",
+    "keywords": [
+        "Agent-Based Computational Economics",
+        "Artificial market",
+        "Automatic trading"
+    ],
+    "programmingLanguage": [
+        "Java"
+    ],
+    "operatingSystem": [
+        "Linux",
+        "Windows",
+        "MacOS"
+    ],
+    "softwareRequirements": [
+        "Java 1.7"
+    ],
+    "author": [
+        {
+            "@type": "Person",
+            "@id": "https://orcid.org/0000-0003-2786-1209",
+            "givenName": "Philippe",
+            "familyName": "MATHIEU",
+            "email": "philippe.mathieu@univ-lille.fr",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Univ. Lille, CNRS, Centrale Lille, UMR 9189 - CRIStAL, F-59000 Lille, France"
+            }
+        },
+        {
+            "@type": "Person",
+            "@id": "https://orcid.org/0000-0002-0751-6945",
+            "givenName": "Olivier",
+            "familyName": "BRANDOUY",
+            "email": "o.brandouy@gmail.com",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Univ. Bordeaux, UMR 6060, F-33405 Talence, France"
+            }
+        }
+    ],
+    "contributor": [
+        {
+            "@type": "Person",
+            "@id": "https://orcid.org/0000-0003-2786-1209",
+            "givenName": "Philippe",
+            "familyName": "MATHIEU",
+            "email": "philippe.mathieu@univ-lille.fr",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Univ. Lille, CNRS, Centrale Lille, UMR 9189 - CRIStAL, F-59000 Lille, France"
+            }
+        },
+        {
+            "@type": "Person",
+            "@id": "https://orcid.org/0000-0002-0751-6945",
+            "givenName": "Olivier",
+            "familyName": "BRANDOUY",
+            "email": "o.brandouy@gmail.com",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Univ. Bordeaux, UMR 6060, F-33405 Talence, France"
+            }
+        }
+    ]
+}
