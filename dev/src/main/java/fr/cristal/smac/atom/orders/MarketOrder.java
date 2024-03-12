@@ -17,7 +17,9 @@ public class MarketOrder extends LimitOrder
 {
     public MarketOrder(String obName, String extId,char direction, int quantity, int validity)
     {	super(obName,extId,direction,quantity,
-	      (direction == LimitOrder.ASK ? 0 : Long.MAX_VALUE), validity);
+	      //(direction == LimitOrder.ASK ? 0 : Long.MAX_VALUE), validity);
+          // Pb de tri avec Long.MAX_VALUE
+          (direction == LimitOrder.ASK ? 0 : 999999999), validity);
 			type='M';
     }
 
