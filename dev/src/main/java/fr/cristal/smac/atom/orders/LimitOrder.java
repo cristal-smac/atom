@@ -16,11 +16,10 @@ import fr.cristal.smac.atom.*;
 
 public class LimitOrder extends Order
 {
-
     public char direction;
     public int quantity;
     public int initQuty;
-    public long price;
+    public long price;    /* Should be final Because of TreeSet and its comparator you can't change the price */
     public long validity;
     public static final char ASK = 'A';
     public static final char BID = 'B';
