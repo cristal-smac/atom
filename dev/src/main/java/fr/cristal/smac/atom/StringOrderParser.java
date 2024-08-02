@@ -227,10 +227,18 @@ public class StringOrderParser {
                 order = new UpdateOrder(obName, extId, idToKill, qty);
                 break; // price=orderToUpdate
             case 'V':
+                // cancel the order
                 idToKill = cols[5];
+                Order orderCancel = new CancelOrder(obName, extId, idToKill);
+                orderCancel.sender = s.agentList.get(cols[2]);
+
+                s.market.send(orderCancel.sender, orderCancel);
+                // add the new order with new price & quantity
                 qty = Integer.parseInt(cols[6]);
                 price = Integer.parseInt(cols[7]);
+                dir = cols[5].charAt(0);
                 order = new UpdatePriceVolumeOrder(obName, extId, idToKill, qty, price);
+
                 break; // price=orderToUpdate
             case 'T': // MarketToLimit
                 dir = cols[5].charAt(0);
