@@ -17,7 +17,6 @@ import java.util.StringTokenizer;
 import fr.cristal.smac.atom.orders.*;
 import fr.cristal.smac.atom.agents.*;
 
-
 /**
  * A simple order parser that transform a string representing an order in its
  * corresponding Object.
@@ -25,8 +24,7 @@ import fr.cristal.smac.atom.agents.*;
  * Usage: StringOrderParser.parse("toto;LVMH;1;M;A;10000");
  *
  */
-public class StringOrderParser
-{
+public class StringOrderParser {
 
     public static final char FIX = 'F';
     public static final char CONTINUOUS = 'C';
@@ -35,8 +33,7 @@ public class StringOrderParser
     public static final char SHORT = 'S';
     public static final char LONG = 'L';
 
-    public static boolean isCommentOrEmpty(String currentLine)
-    {
+    public static boolean isCommentOrEmpty(String currentLine) {
         return (currentLine == null | currentLine.length() == 0
                 || currentLine.charAt(0) == '#'
                 || currentLine.startsWith("Order;obname")
@@ -47,89 +44,76 @@ public class StringOrderParser
                 || currentLine.startsWith("Day;numday"));
     }
 
-    public static boolean isDay(String currentLine)
-    {
+    public static boolean isDay(String currentLine) {
         return currentLine.startsWith("Day");
     }
 
-    public static boolean isTick(String currentLine)
-    {
+    public static boolean isTick(String currentLine) {
         return currentLine.startsWith("Tick");
     }
 
-    public static boolean isCommand(String currentLine)
-    {
+    public static boolean isCommand(String currentLine) {
         return currentLine.startsWith("!");
     }
 
-    public static boolean isOrder(String currentLine)
-    {
+    public static boolean isOrder(String currentLine) {
         return currentLine.startsWith("Order");
     }
 
-    public static boolean isAgent(String currentLine)
-    {
+    public static boolean isAgent(String currentLine) {
         return currentLine.startsWith("Agent");
     }
 
-    public static boolean isPrice(String currentLine)
-    {
+    public static boolean isPrice(String currentLine) {
         return currentLine.startsWith("Price");
     }
 
-    public static boolean isInfo(String currentLine)
-    {
+    public static boolean isInfo(String currentLine) {
         return currentLine.startsWith("Info");
     }
 
-    public static boolean isAuctions(String currentLine)
-    {
+    public static boolean isAuctions(String currentLine) {
         return currentLine.startsWith("Auctions");
     }
 
-    public static boolean isExec(String currentLine)
-    {
+    public static boolean isExec(String currentLine) {
         return currentLine.startsWith("Exec");
     }
 
-    public static void parseAndexecuteCommand(String currentLine, Simulation s)
-    {
-        if (currentLine.charAt(0) == '!' && currentLine.length() >= 2)
-        {
-            switch (currentLine.charAt(1))
-            {
+    public static void parseAndexecuteCommand(String currentLine, Simulation s) {
+        if (currentLine.charAt(0) == '!' && currentLine.length() >= 2) {
+            switch (currentLine.charAt(1)) {
                 case PRINT:
                     // on affiche tous les orderbook
-                    for (String obName : s.market.orderBooks.keySet())
-                    {
+                    for (String obName : s.market.orderBooks.keySet()) {
                         OrderBook ob = s.market.orderBooks.get(obName);
-                        // On n'utilise pas le ob.toString car il nous faut un "#" devant 
+                        // On n'utilise pas le ob.toString car il nous faut un "#" devant
                         StringBuffer sb = new StringBuffer("\n");
-                        for (Iterator<LimitOrder> it = ob.ask.descendingIterator(); it.hasNext();)
-                        {
-                            sb.append("#" + it.next());
+                        sb.append("#-----Order Book BEGIN -----\n");
+                        for (Iterator<LimitOrder> it = ob.ask.descendingIterator(); it.hasNext();) {
+                            sb.append(it.next());
                             sb.append("\n");
                         }
                         sb.append("#----------------\n");
-                        for (Iterator<LimitOrder> it = ob.bid.iterator(); it.hasNext();)
-                        {
-                            sb.append("#" + it.next());
+                        for (Iterator<LimitOrder> it = ob.bid.iterator(); it.hasNext();) {
+                            sb.append(it.next());
                             sb.append("\n");
                         }
                         sb.append("\n");
+                        sb.append("#-----Order Book END -----\n");
                         s.log.print(sb.toString());
                     }
                     break;
                 case CONTINUOUS:
-                    //System.out.println("COMMAND: Setting fixing mechanism to CONTINUOUS");
+                    // System.out.println("COMMAND: Setting fixing mechanism to CONTINUOUS");
                     s.market.setFixingPeriod(MarketPlace.CONTINUOUS);
                     break;
                 case FIX:
-                    //System.out.println("COMMAND: Setting fixing mechanism to FIX");
+                    // System.out.println("COMMAND: Setting fixing mechanism to FIX");
                     s.market.setFixingPeriod(MarketPlace.FIX);
                     break;
                 case CLOSE:
-                    //System.out.println("COMMAND: Closing market and fixing closing prices");
+                    // System.out.println("COMMAND: Closing market and fixing closing prices");
                     s.market.close();
                     break;
                 case SHORT:
@@ -151,11 +135,10 @@ public class StringOrderParser
      * Day;2;IBM;14725;14109;14725;14725;12;
      *
      * @param dayLog line with describes a day in the log
-     * @param s the simulation class
+     * @param s      the simulation class
      * @return a new daylog
      */
-    public static DayLog parseDay(String dayLog, Simulation s)
-    {
+    public static DayLog parseDay(String dayLog, Simulation s) {
         String[] tokens = dayLog.split(";");
         String obName = tokens[2];
         createOrderbookIfItDoesNotExistYet(obName, s);
@@ -166,8 +149,7 @@ public class StringOrderParser
         return new DayLog(obName, open, low, high, close);
     }
 
-    public static PriceRecord parsePrice(String priceLog, Simulation s)
-    {
+    public static PriceRecord parsePrice(String priceLog, Simulation s) {
         // Price;AAPL;14198;57;A;zit_1-3;zit_2-3;14002;14198
         StringTokenizer parse = new StringTokenizer(priceLog, ";");
         parse.nextToken(); // "Price"
@@ -175,38 +157,32 @@ public class StringOrderParser
 
         // si l'orderbook n'existe pas, on le cree
         OrderBook ob = s.market.orderBooks.get(obName);
-        if (ob == null)
-        {
+        if (ob == null) {
             s.addNewOrderBook(obName);
         }
 
         String price = parse.nextToken();
         String quty = parse.nextToken();
-        if (quty.isEmpty())
-        {
+        if (quty.isEmpty()) {
             quty = "0";
         }
         String dir = parse.nextToken();
-        if (dir.isEmpty())
-        {
+        if (dir.isEmpty()) {
             dir = "X";
         }
         return new PriceRecord(obName, Long.parseLong(price),
                 Integer.parseInt(quty), dir.charAt(0), "X", "X");
     }
 
-    protected static void createOrderbookIfItDoesNotExistYet(String obName, Simulation s)
-    {
+    protected static void createOrderbookIfItDoesNotExistYet(String obName, Simulation s) {
         // si l'orderbook n'existe pas, on le cree
         OrderBook ob = s.market.orderBooks.get(obName);
-        if (ob == null)
-        {
+        if (ob == null) {
             s.addNewOrderBook(obName);
         }
     }
 
-    public static Order parseOrder(String currentLine, Simulation s)
-    {
+    public static Order parseOrder(String currentLine, Simulation s) {
         // String obName2Test = null;
         char dir;
         int qty, part, total;
@@ -222,8 +198,7 @@ public class StringOrderParser
         createOrderbookIfItDoesNotExistYet(obName, s);
 
         // create and send the order
-        switch (type)
-        {
+        switch (type) {
             case 'L':
                 dir = cols[5].charAt(0);
                 price = Long.parseLong(cols[6]);
@@ -251,6 +226,20 @@ public class StringOrderParser
                 qty = Integer.parseInt(cols[6]);
                 order = new UpdateOrder(obName, extId, idToKill, qty);
                 break; // price=orderToUpdate
+            case 'V':
+                // cancel the order
+                idToKill = cols[5];
+                Order orderCancel = new CancelOrder(obName, extId, idToKill);
+                orderCancel.sender = s.agentList.get(cols[2]);
+
+                s.market.send(orderCancel.sender, orderCancel);
+                // add the new order with new price & quantity
+                qty = Integer.parseInt(cols[6]);
+                price = Integer.parseInt(cols[7]);
+                dir = cols[5].charAt(0);
+                order = new UpdatePriceVolumeOrder(obName, extId, idToKill, qty, price);
+
+                break; // price=orderToUpdate
             case 'T': // MarketToLimit
                 dir = cols[5].charAt(0);
                 qty = Integer.parseInt(cols[6]);
@@ -261,13 +250,13 @@ public class StringOrderParser
                 prixIntro = Long.parseLong(cols[6]);
                 qty = Integer.parseInt(cols[7]);
                 seuil = Long.parseLong(cols[8]);
-                order = new StopLossLimitOrder(obName, extId, dir , qty, prixIntro, seuil);
+                order = new StopLossLimitOrder(obName, extId, dir, qty, prixIntro, seuil);
                 break;
             case 'R': // StopLossMarketOrder
                 dir = cols[5].charAt(0);
                 qty = Integer.parseInt(cols[6]);
                 seuil = Long.parseLong(cols[7]);
-                order = new StopLossMarketOrder(obName, extId, dir , qty, seuil);
+                order = new StopLossMarketOrder(obName, extId, dir, qty, seuil);
                 break;
             default:
                 System.err.println("Order skipped : " + type);
@@ -275,15 +264,14 @@ public class StringOrderParser
 
         String agentName = cols[2];
         Agent a = s.agentList.get(agentName);
-        if (a == null)
-        {
+        if (a == null) {
             a = new DumbAgent(agentName, 0);
             s.addNewAgent(a);
         }
 
         order.sender = a;
 
-        //System.err.println("StringOrderParser: "+order);
+        // System.err.println("StringOrderParser: "+order);
         return order;
     }
 

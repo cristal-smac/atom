@@ -187,4 +187,8 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
+
+.vscode
+iryna*
+
 # End of https://www.gitignore.io/api/java,maven,macos,emacs,eclipse
